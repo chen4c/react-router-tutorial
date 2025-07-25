@@ -10,6 +10,7 @@ import ErrorPage from "./error-page.jsx";
 import Contact from "./routes/contact.jsx";
 import { loader as rootLoader } from "./routes/rootLoader";
 import { action as rootAction } from "./routes/rootAction";
+import { loader as contactLoader } from "./routes/contactLoader";
 
 const router = createBrowserRouter([
   {
@@ -22,12 +23,9 @@ const router = createBrowserRouter([
       {
         path: "contacts/:contactId",
         element: <Contact />,
+        loader: contactLoader, // fetch contact data
       },
     ]
-  },
-  {
-    path: "contacts/:contactId",
-    element: <Contact />,
   },
 ]);
 
