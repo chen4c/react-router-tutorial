@@ -9,13 +9,15 @@ import Root from "./routes/root.jsx";
 import ErrorPage from "./error-page.jsx";
 import Contact from "./routes/contact.jsx";
 import { loader as rootLoader } from "./routes/rootLoader";
+import { action as rootAction } from "./routes/rootAction";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
-    loader: rootLoader,
+    loader: rootLoader, // fetch data before rendering
+    action: rootAction, // handle form submissions
     children: [
       {
         path: "contacts/:contactId",
