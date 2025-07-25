@@ -5,12 +5,13 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import "./index.css";
-import Root from "./routes/root.jsx";
-import ErrorPage from "./error-page.jsx";
-import Contact from "./routes/contact.jsx";
+import Root from "./routes/root";
+import ErrorPage from "./error-page";
+import Contact from "./routes/contact";
 import { loader as rootLoader } from "./routes/rootLoader";
 import { action as rootAction } from "./routes/rootAction";
 import { loader as contactLoader } from "./routes/contactLoader";
+import EditContact from "./routes/edit";
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
         path: "contacts/:contactId",
         element: <Contact />,
         loader: contactLoader, // fetch contact data
+      },
+      {
+        path: "contacts/:contactId/edit",
+        element: <EditContact />,
+        loader: contactLoader, // fetch contact data for editing
       },
     ]
   },
