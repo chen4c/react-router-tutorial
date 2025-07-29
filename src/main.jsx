@@ -13,6 +13,7 @@ import { action as rootAction } from "./routes/rootAction";
 import { loader as contactLoader } from "./routes/contactLoader";
 import EditContact from "./routes/edit";
 import { action as editAction } from "./routes/editAction";
+import { action as destroyAction } from "./routes/destroy"; // Import the destroy action
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         element: <EditContact />,
         loader: contactLoader, // fetch contact data for editing
         action: editAction, // handle form submission for editing
+      },
+      {
+        path: "contacts/:contactId/destroy",
+        action: destroyAction, // handle form submission for destroying
       },
     ]
   },
