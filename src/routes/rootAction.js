@@ -1,6 +1,7 @@
 import { createContact } from "../contacts";
+import { redirect } from "react-router-dom";
 
 export async function action() {
   const contact = await createContact();
-  return { contact };
+  return redirect(`/contacts/${contact.id}/edit`);
 }
