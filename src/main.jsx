@@ -14,6 +14,7 @@ import { loader as contactLoader } from "./routes/contactLoader";
 import EditContact from "./routes/edit";
 import { action as editAction } from "./routes/editAction";
 import { action as destroyAction } from "./routes/destroy"; // Import the destroy action
+import Index from "./routes/index";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     loader: rootLoader, // fetch data before rendering
     action: rootAction, // handle form submissions
     children: [
+      {
+        index: true,
+        element: <Index />,
+      },
       {
         path: "contacts/:contactId",
         element: <Contact />,
