@@ -5,10 +5,15 @@ import {
   Form,
   useNavigation,
 } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Root() {
-  const { contacts } = useLoaderData();
+  const { contacts, q } = useLoaderData();
   const navigation = useNavigation();
+
+  useEffect(() => {
+    document.getElementById("q").value = q;
+  }, [q]);
 
   return (
     <>
@@ -22,6 +27,7 @@ export default function Root() {
               placeholder="Search"
               type="search"
               name="q"
+              defaultValue={q}
             />
             <div
               id="search-spinner"
